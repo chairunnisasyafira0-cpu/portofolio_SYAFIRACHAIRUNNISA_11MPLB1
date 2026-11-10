@@ -1,0 +1,641 @@
+```html
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Syafira Chairunnisa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lotso: {
+                            50: '#fff1f5',
+                            100: '#ffe4ed',
+                            200: '#fecddf',
+                            300: '#fda4c7',
+                            400: '#fb6f9f',
+                            500: '#e63973',
+                            600: '#c71f54',
+                            700: '#a3123f',
+                            800: '#861237',
+                            900: '#711432',
+                            dark: '#4a071e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        cute: ['Fredoka', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .lotso-gradient {
+            background: linear-gradient(135deg, #fb6f9f 0%, #c71f54 100%);
+        }
+        .lotso-soft-gradient {
+            background: linear-gradient(135deg, #fff1f5 0%, #ffe4ed 100%);
+        }
+        .lotso-card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(230, 57, 115, 0.15);
+        }
+        .lotso-card-glow:hover {
+            box-shadow: 0 15px 35px -5px rgba(230, 57, 115, 0.3);
+        }
+        /* Floating animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans selection:bg-lotso-200 selection:text-lotso-800 antialiased overflow-x-hidden">
+
+    <!-- NAVBAR SECTION -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-lotso-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo Brand -->
+                <a href="#hero" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-2xl bg-lotso-500 flex items-center justify-center text-white text-xl font-cute font-bold shadow-md group-hover:rotate-12 transition-transform duration-300">
+                        🍓
+                    </div>
+                    <span class="font-cute font-bold text-xl text-lotso-800 tracking-wide">
+                        Syafira<span class="text-lotso-500">.</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center gap-1 bg-lotso-50/80 p-1.5 rounded-full border border-lotso-100">
+                    <a href="#hero" class="px-5 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-lotso-600 hover:bg-white transition-all">Beranda</a>
+                    <a href="#about" class="px-5 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-lotso-600 hover:bg-white transition-all">Tentang Saya</a>
+                    <a href="#skills" class="px-5 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-lotso-600 hover:bg-white transition-all">Keahlian</a>
+                    <a href="#projects" class="px-5 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-lotso-600 hover:bg-white transition-all">Project</a>
+                    <a href="#contact" class="px-5 py-2 rounded-full text-sm font-medium text-white bg-lotso-500 hover:bg-lotso-600 shadow-sm transition-all">Kontak</a>
+                </nav>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-lotso-700 hover:bg-lotso-50 focus:outline-none" aria-label="Open Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-lotso-100 px-4 pt-2 pb-6 space-y-2">
+            <a href="#hero" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-lotso-50 hover:text-lotso-600">Beranda</a>
+            <a href="#about" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-lotso-50 hover:text-lotso-600">Tentang Saya</a>
+            <a href="#skills" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-lotso-50 hover:text-lotso-600">Keahlian</a>
+            <a href="#projects" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-lotso-50 hover:text-lotso-600">Project</a>
+            <a href="#contact" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-lotso-500 text-center">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="min-h-[calc(100vh-5rem)] flex items-center justify-center relative overflow-hidden py-12 lg:py-0 bg-gradient-to-b from-lotso-50 via-white to-slate-50">
+            <!-- Decorative Lotso Floating Accents -->
+            <div class="absolute top-10 left-10 text-4xl opacity-20 animate-float">🍓</div>
+            <div class="absolute bottom-10 right-10 text-5xl opacity-20 animate-float" style="animation-delay: 1.5s;">🧸</div>
+            <div class="absolute top-1/3 right-12 w-72 h-72 bg-lotso-300/20 rounded-full blur-3xl -z-10"></div>
+            <div class="absolute bottom-10 left-12 w-80 h-80 bg-lotso-400/15 rounded-full blur-3xl -z-10"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Text Content Left Side -->
+                    <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lotso-100/80 border border-lotso-200 text-lotso-700 text-sm font-medium">
+                            <span class="w-2 h-2 rounded-full bg-lotso-500 animate-pulse"></span>
+                            Selamat Datang di Portofolio Saya ✨
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                            Halo, Saya <br class="hidden sm:inline"/>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-lotso-600 via-lotso-500 to-pink-500 font-cute">
+                                Syafira Chairunnisa
+                            </span>
+                        </h1>
+
+                        <div class="p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-lotso-100 lotso-card-shadow text-slate-600 text-base sm:text-lg leading-relaxed relative">
+                            <div class="absolute -top-3 left-6 px-2 bg-lotso-500 text-white text-xs font-semibold rounded">
+                                Welcome Note 🧸
+                            </div>
+                            "Hallo, selamat datang di website portofolio saya, website ini dibuat untuk menaruh seluruh project yang saya buat !"
+                        </div>
+
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#projects" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-lotso-500 hover:bg-lotso-600 text-white font-semibold text-sm shadow-lg shadow-lotso-500/30 hover:scale-105 transition-all">
+                                <i data-lucide="folder-kanban" class="w-4 h-4"></i>
+                                Lihat Project Saya
+                            </a>
+                            <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-white hover:bg-lotso-50 text-lotso-700 font-semibold text-sm border border-lotso-200 hover:border-lotso-300 transition-all">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                                Kontak Saya
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Photo & Lotso Badge Right Side -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+                            <!-- Outer Animated Frame -->
+                            <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-lotso-400 via-pink-400 to-lotso-600 rotate-6 scale-95 opacity-80 blur-sm"></div>
+                            
+                            <!-- Profile Container -->
+                            <div class="relative w-full h-full rounded-3xl bg-white p-3 border-2 border-lotso-200 lotso-card-shadow overflow-hidden group">
+                                <img src="1000621995_c55734.png" 
+                                     alt="Syafira Chairunnisa" 
+                                     class="w-full h-full object-cover object-center rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.onerror=null; this.src='1000621995_c55734.png';" />
+                                
+                                <!-- Floating Lotso Badge Accent -->
+                                <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-2xl border border-lotso-100 flex items-center gap-3 shadow-lg">
+                                    <div class="w-10 h-10 rounded-xl bg-lotso-100 flex items-center justify-center text-xl">
+                                        🍓
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-slate-800">Siswa MPLB</p>
+                                        <p class="text-[10px] text-lotso-600 font-medium">SMK Cyber Media</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT SECTION -->
+        <section id="about" class="py-20 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-lotso-600 text-sm font-semibold tracking-wider uppercase bg-lotso-50 px-3 py-1 rounded-full border border-lotso-100">
+                        Tentang Saya
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 font-cute">
+                        Mengenal Syafira Lebih Dekat 🌸
+                    </h2>
+                    <div class="w-16 h-1 bg-lotso-500 mx-auto mt-3 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Left Column Card Visual -->
+                    <div class="lg:col-span-5">
+                        <div class="lotso-soft-gradient p-6 rounded-3xl border border-lotso-200 relative overflow-hidden shadow-sm flex flex-col items-center text-center">
+                            <div class="w-40 h-40 rounded-2xl overflow-hidden border-2 border-lotso-300 shadow-md mb-4">
+                                <img src="1000621995_c55734.png" alt="Syafira Chairunnisa Profile" class="w-full h-full object-cover object-center" />
+                            </div>
+                            <h3 class="text-2xl font-bold text-lotso-800 mb-1 font-cute">Syafira Chairunnisa</h3>
+                            <p class="text-lotso-600 text-xs font-semibold mb-4 bg-white/80 px-3 py-1 rounded-full border border-lotso-100">MPLB Student</p>
+                            <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                                Memiliki ketertarikan tinggi pada tata kelola perkantoran modern, efisiensi kerja administrasi, dan layanan bisnis yang ramah serta profesional.
+                            </p>
+                            
+                            <!-- Highlight Badges -->
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 bg-white p-3.5 rounded-2xl border border-lotso-100 shadow-sm">
+                                    <div class="p-2 bg-lotso-100 text-lotso-600 rounded-xl">
+                                        <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-slate-400 block">Institusi Pendidikan</span>
+                                        <span class="text-sm font-bold text-slate-800">SMK Cyber Media</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 bg-white p-3.5 rounded-2xl border border-lotso-100 shadow-sm">
+                                    <div class="p-2 bg-lotso-100 text-lotso-600 rounded-xl">
+                                        <i data-lucide="briefcase" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-slate-400 block">Jurusan Spesialisasi</span>
+                                        <span class="text-sm font-bold text-slate-800">MPLB (Manajemen Perkantoran & Layanan Bisnis)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column Detail Description -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <h3 class="text-2xl font-bold text-slate-900">
+                            Siswa Dedikatif di Jurusan Manajemen Perkantoran & Layanan Bisnis
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Saya saat ini merupakan siswa aktif di <span class="font-semibold text-lotso-700">SMK CYBER MEDIA</span> dengan mengambil program keahlian <span class="font-semibold text-lotso-700">MPLB (Manajemen Perkantoran dan Layanan Bisnis)</span>. Selama menempuh pendidikan di SMK Cyber Media, saya telah dilatih untuk menguasai berbagai standar operasional perkantoran digital.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed">
+                            Fokus utama studi saya meliputi pengelolaan arsip surat-menyurat secara tepat dan aman, otomatisasi dokumen perkantoran, pengolahan data statistik bisnis dasar, hingga keterampilan interpersonal dalam memberikan layanan komunikasi bisnis yang optimal.
+                        </p>
+
+                        <!-- Key Pillars Grid -->
+                        <div class="grid grid-cols-2 gap-4 pt-4">
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                <div class="text-lotso-500 font-bold text-xl font-cute mb-1">01. Teliti</div>
+                                <p class="text-xs text-slate-500">Kerapihan dan keakuratan data merupakan prioritas utama saya.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                <div class="text-lotso-500 font-bold text-xl font-cute mb-1">02. Komunikatif</div>
+                                <p class="text-xs text-slate-500">Mampu berinteraksi dengan ramah, santun, dan responsif.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SKILLS SECTION -->
+        <section id="skills" class="py-20 bg-lotso-50/50 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-lotso-600 text-sm font-semibold tracking-wider uppercase bg-white px-3 py-1 rounded-full border border-lotso-200">
+                        Kemampuan Saya
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 font-cute">
+                        Skill & Kompetensi MPLB 🍓
+                    </h2>
+                    <p class="text-slate-500 text-sm mt-2">Daftar keahlian software perkantoran dan soft-skills yang saya kuasai</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Skill 1: Word -->
+                    <div class="bg-white p-7 rounded-3xl border border-lotso-100 lotso-card-shadow lotso-card-glow transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="file-text" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Microsoft Word</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                            Penyusunan surat resmi perkantoran, pembuatan laporan bertingkat, format tabel, serta penggunaan fitur Mail Merge.
+                        </p>
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-blue-500 h-full rounded-full w-[90%]"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 2: Excel -->
+                    <div class="bg-white p-7 rounded-3xl border border-lotso-100 lotso-card-shadow lotso-card-glow transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="file-spreadsheet" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Microsoft Excel</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                            Pengolahan data angka perkantoran, pengunaan rumus logika (VLOOKUP, IF, SUM, AVERAGE), dan pembuatan grafik statistik.
+                        </p>
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-full rounded-full w-[85%]"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 3: PowerPoint -->
+                    <div class="bg-white p-7 rounded-3xl border border-lotso-100 lotso-card-shadow lotso-card-glow transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="presentation" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Microsoft PowerPoint</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                            Pembuatan slide presentasi bisnis yang menarik, rapi, terstruktur, serta dilengkapi elemen animasi visual interaktif.
+                        </p>
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-orange-500 h-full rounded-full w-[88%]"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 4: Komunikasi -->
+                    <div class="bg-white p-7 rounded-3xl border border-lotso-100 lotso-card-shadow lotso-card-glow transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-lotso-50 text-lotso-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="messages-square" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Komunikasi Bahasa Indonesia</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                            Komunikasi lisan dan tulisan yang santun, formal, serta efektif untuk pelayanan kearsipan dan tamu perusahaan.
+                        </p>
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-lotso-500 h-full rounded-full w-[95%]"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 5: Kearsipan -->
+                    <div class="bg-white p-7 rounded-3xl border border-lotso-100 lotso-card-shadow lotso-card-glow transition-all duration-300 group md:col-span-2 lg:col-span-2">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="archive" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Penyimpanan & Pengelolaan Arsip</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                            Mampu menyusun, mengklasifikasikan, dan menyimpan arsip dokumen fisik maupun digital dengan benar sesuai sistem kearsipan standar (Sistem Abjad, Subjek, Nomor, Kronologis) agar mudah ditemukan kembali.
+                        </p>
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-purple-500 h-full rounded-full w-[92%]"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PROJECT SECTION -->
+        <section id="projects" class="py-20 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-lotso-600 text-sm font-semibold tracking-wider uppercase bg-lotso-50 px-3 py-1 rounded-full border border-lotso-100">
+                        Portofolio Karya
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 font-cute">
+                        Project & Tugas Praktik MPLB 📂
+                    </h2>
+                    <p class="text-slate-500 text-sm mt-2">Kumpulan hasil kerja administrasi dan tugas praktek yang pernah saya kerjakan</p>
+                </div>
+
+                <!-- Filter Category Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 mb-10">
+                    <button class="project-filter-btn px-5 py-2 rounded-full text-sm font-medium bg-lotso-500 text-white shadow-sm transition-all" data-filter="all">Semua Project</button>
+                    <button class="project-filter-btn px-5 py-2 rounded-full text-sm font-medium bg-slate-100 text-slate-600 hover:bg-lotso-100 hover:text-lotso-700 transition-all" data-filter="arsip">Kearsipan</button>
+                    <button class="project-filter-btn px-5 py-2 rounded-full text-sm font-medium bg-slate-100 text-slate-600 hover:bg-lotso-100 hover:text-lotso-700 transition-all" data-filter="dokumen">Dokumen Surat</button>
+                    <button class="project-filter-btn px-5 py-2 rounded-full text-sm font-medium bg-slate-100 text-slate-600 hover:bg-lotso-100 hover:text-lotso-700 transition-all" data-filter="presentasi">Presentasi</button>
+                </div>
+
+                <!-- Projects Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project Item 1 -->
+                    <div class="project-card bg-white rounded-3xl border border-slate-200 overflow-hidden lotso-card-shadow hover:-translate-y-1 transition-all duration-300" data-category="arsip">
+                        <div class="h-48 bg-lotso-100 relative overflow-hidden flex items-center justify-center">
+                            <span class="text-6xl">📁</span>
+                            <div class="absolute top-3 right-3 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-lotso-700">
+                                Kearsipan Digital
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Sistem Pengarsipan Surat Masuk & Keluar</h3>
+                            <p class="text-slate-500 text-sm line-clamp-2 mb-4">
+                                Proyek pengelolaan dan penataan berkas arsip dinamis sesuai sistem nomor dan abjad untuk efisiensi penemuan dokumen.
+                            </p>
+                            <button onclick="openModal('Sistem Pengarsipan Surat', 'Project ini mencakup penyusunan buku agenda surat masuk dan surat keluar, pembuatan lembar disposisi, serta penyimpanan fisik dan digital berbasis folder tersusun rapi.', '📁 Kearsipan Digital')" class="w-full py-2.5 rounded-xl border border-lotso-200 text-lotso-600 text-sm font-semibold hover:bg-lotso-50 transition-colors">
+                                Detail Project
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project Item 2 -->
+                    <div class="project-card bg-white rounded-3xl border border-slate-200 overflow-hidden lotso-card-shadow hover:-translate-y-1 transition-all duration-300" data-category="dokumen">
+                        <div class="h-48 bg-blue-50 relative overflow-hidden flex items-center justify-center">
+                            <span class="text-6xl">📝</span>
+                            <div class="absolute top-3 right-3 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-blue-700">
+                                Dokumen Bisnis
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Penyusunan Format Surat Undangan Resmi</h3>
+                            <p class="text-slate-500 text-sm line-clamp-2 mb-4">
+                                Pembuatan template korespondensi bisnis formal menggunakan Microsoft Word dengan implementasi Mail Merge.
+                            </p>
+                            <button onclick="openModal('Penyusunan Format Surat Undangan', 'Menggunakan Microsoft Word untuk membuat draf surat undangan rapat direksi, lengkap dengan kop surat resmi perusahaan dan fungsi Mail Merge otomatis.', '📝 Dokumen Bisnis')" class="w-full py-2.5 rounded-xl border border-lotso-200 text-lotso-600 text-sm font-semibold hover:bg-lotso-50 transition-colors">
+                                Detail Project
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project Item 3 -->
+                    <div class="project-card bg-white rounded-3xl border border-slate-200 overflow-hidden lotso-card-shadow hover:-translate-y-1 transition-all duration-300" data-category="presentasi">
+                        <div class="h-48 bg-orange-50 relative overflow-hidden flex items-center justify-center">
+                            <span class="text-6xl">📊</span>
+                            <div class="absolute top-3 right-3 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-orange-700">
+                                PowerPoint
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Slide Presentasi Laporan Kas Kecil</h3>
+                            <p class="text-slate-500 text-sm line-clamp-2 mb-4">
+                                Perancangan slide presentasi interaktif laporan keuangan kas kecil untuk rapat operasional bulanan.
+                            </p>
+                            <button onclick="openModal('Slide Presentasi Laporan Kas Kecil', 'Membuat materi visual laporan transaksi kas kecil perkantoran yang mudah dipahami menggunakan grafik Excel terintegrasi dengan PowerPoint.', '📊 Presentasi')" class="w-full py-2.5 rounded-xl border border-lotso-200 text-lotso-600 text-sm font-semibold hover:bg-lotso-50 transition-colors">
+                                Detail Project
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CONTACT ME SECTION -->
+        <section id="contact" class="py-20 bg-gradient-to-b from-slate-50 to-lotso-100/40 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-lotso-600 text-sm font-semibold tracking-wider uppercase bg-white px-3 py-1 rounded-full border border-lotso-200">
+                        Hubungi Saya
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 font-cute">
+                        Mari Terhubung Dengan Syafira 💌
+                    </h2>
+                    <p class="text-slate-500 text-sm mt-2">Silakan terhubung melalui media sosial atau kontak di bawah ini untuk melihat kegiatan saya</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Instagram Card -->
+                    <a href="https://instagram.com/syafiraachrs" target="_blank" rel="noopener noreferrer" 
+                       class="bg-white p-6 rounded-3xl border border-lotso-100 lotso-card-shadow hover:scale-105 transition-all text-center group">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-pink-50 text-pink-600 flex items-center justify-center text-2xl mb-4 group-hover:bg-pink-500 group-hover:text-white transition-colors">
+                            <i data-lucide="instagram" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-lg">Instagram</h3>
+                        <p class="text-lotso-600 font-semibold text-sm mt-1">@syafiraachrs</p>
+                        <span class="text-xs text-slate-400 mt-3 inline-block">Lihat Kegiatan & Gallery →</span>
+                    </a>
+
+                    <!-- TikTok Card -->
+                    <a href="https://tiktok.com/@abcdegh" target="_blank" rel="noopener noreferrer" 
+                       class="bg-white p-6 rounded-3xl border border-lotso-100 lotso-card-shadow hover:scale-105 transition-all text-center group">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-100 text-slate-900 flex items-center justify-center text-2xl mb-4 group-hover:bg-slate-900 group-hover:text-white transition-colors">
+                            <i data-lucide="video" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-lg">TikTok</h3>
+                        <p class="text-lotso-600 font-semibold text-sm mt-1">@abcdegh</p>
+                        <span class="text-xs text-slate-400 mt-3 inline-block">Lihat Konten Kreatif →</span>
+                    </a>
+
+                    <!-- WhatsApp Card -->
+                    <a href="https://wa.me/6285697386081" target="_blank" rel="noopener noreferrer" 
+                       class="bg-white p-6 rounded-3xl border border-lotso-100 lotso-card-shadow hover:scale-105 transition-all text-center group">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-4 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                            <i data-lucide="phone-call" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-lg">WhatsApp</h3>
+                        <p class="text-emerald-600 font-semibold text-sm mt-1">085697386081</p>
+                        <span class="text-xs text-slate-400 mt-3 inline-block">Kirim Pesan Langsung →</span>
+                    </a>
+
+                    <!-- Email Card -->
+                    <a href="mailto:chairunnisasyafira0@gmail.com" 
+                       class="bg-white p-6 rounded-3xl border border-lotso-100 lotso-card-shadow hover:scale-105 transition-all text-center group">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-4 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                            <i data-lucide="mail" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-lg">Email</h3>
+                        <p class="text-blue-600 font-semibold text-xs mt-1 truncate px-2">chairunnisasyafira0@gmail.com</p>
+                        <span class="text-xs text-slate-400 mt-3 inline-block">Kirim Email Surat →</span>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. FOOTER SECTION -->
+    <footer class="bg-lotso-dark text-white pt-16 pb-12 border-t-4 border-lotso-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-lotso-800">
+                
+                <!-- Footer Brand Info -->
+                <div class="md:col-span-6 space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="w-10 h-10 rounded-2xl bg-lotso-500 flex items-center justify-center text-white text-xl font-cute font-bold">
+                            🍓
+                        </div>
+                        <span class="font-cute font-bold text-2xl tracking-wide text-white">
+                            Syafira Chairunnisa
+                        </span>
+                    </div>
+                    <p class="text-lotso-200 text-sm max-w-md leading-relaxed">
+                        Siswa SMK Cyber Media jurusan MPLB (Manajemen Perkantoran dan Layanan Bisnis) yang siap berkontribusi dalam pengelolaan administrasi kantor modern secara profesional.
+                    </p>
+                </div>
+
+                <!-- Quick Nav Links -->
+                <div class="md:col-span-6">
+                    <h4 class="text-sm font-semibold uppercase tracking-wider text-lotso-300 mb-4">Navigasi Menu</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
+                        <a href="#hero" class="text-lotso-100 hover:text-white hover:underline transition-colors">Beranda</a>
+                        <a href="#about" class="text-lotso-100 hover:text-white hover:underline transition-colors">Tentang Saya</a>
+                        <a href="#skills" class="text-lotso-100 hover:text-white hover:underline transition-colors">Keahlian</a>
+                        <a href="#projects" class="text-lotso-100 hover:text-white hover:underline transition-colors">Project</a>
+                        <a href="#contact" class="text-lotso-100 hover:text-white hover:underline transition-colors">Kontak</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Watermark -->
+            <div class="pt-8 text-center">
+                <p class="text-lotso-200 text-sm font-medium">
+                    dibuat dengan ♥️ oleh syafira chairunnisa
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl border border-lotso-100 animate-float" style="animation-duration: 0.3s;">
+            <button onclick="closeModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="modalCategory" class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-lotso-100 text-lotso-700 mb-3">
+                Category
+            </div>
+            <h3 id="modalTitle" class="text-2xl font-bold text-slate-900 mb-4 font-cute">
+                Project Title
+            </h3>
+            <p id="modalDescription" class="text-slate-600 text-sm leading-relaxed mb-6">
+                Project Description...
+            </p>
+            <button onclick="closeModal()" class="w-full py-3 bg-lotso-500 hover:bg-lotso-600 text-white font-semibold rounded-2xl shadow-md transition-all">
+                Tutup Detail
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close Mobile Menu on Click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Project Filtering Functionality
+        const filterBtns = document.querySelectorAll('.project-filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-lotso-500', 'text-white');
+                    b.classList.add('bg-slate-100', 'text-slate-600');
+                });
+
+                // Add active class to clicked button
+                btn.classList.remove('bg-slate-100', 'text-slate-600');
+                btn.classList.add('bg-lotso-500', 'text-white');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Functionality
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalCategory = document.getElementById('modalCategory');
+
+        function openModal(title, desc, category) {
+            modalTitle.innerText = title;
+            modalDescription.innerText = desc;
+            modalCategory.innerText = category;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close Modal when clicking outside content
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
+```
